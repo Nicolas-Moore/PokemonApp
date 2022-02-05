@@ -1,38 +1,397 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+:root {
+    --body-color: #ffffff;
+    --bug-dark-color: #ede574;
+    --bug-light-color: #e1f5c4;
+    --dark-dark-color: #705848;
+    --dark-light-color: #a29288;
+    --dragon-dark-color: #754BDB;
+    --dragon-light-color: #C1AAFA;
+    --electric-dark-color: #E0C969;
+    --electric-light-color: #FCEEB6;
+    --evo-bg-color: #616161;
+    --evo-bg-image: url('./images/bg.png');
+    --evo-types-weaknesses-border-color: #008000;
+    --fairy-dark-color: #dd5e89;
+    --fairy-light-color: #f7bb97;
+    --fighting-dark-color: #e53935;
+    --fighting-light-color: #e35d5b;
+    --fire-dark-color: #ff512f;
+    --fire-light-color: #f09819;
+    --flying-dark-color: #B59EF7;
+    --flying-light-color: #DFD7F7;
+    --ghost-dark-color: #8164B5;
+    --ghost-light-color: #C9BDDE;
+    --grass-dark-color: #134e5e;
+    --grass-light-color: #71b280;
+    --ground-dark-color: #d1913c;
+    --ground-light-color: #ffd194;
+    --ice-dark-color: #69D1D1;
+    --ice-light-color: #DCF7F7;
+    --normal-dark-color: #d8d6d5;
+    --normal-light-color: #ffffff;
+    --poison-dark-color: #800080;
+    --poison-light-color: #ffc0cb;
+    --psychic-dark-color: #ec008c;
+    --psychic-light-color: #fc6767;
+    --rock-dark-color: #3e5151;
+    --rock-light-color: #decba4;
+    --steel-dark-color: #757f9a;
+    --steel-light-color: #d7dde8;
+    --types-weaknesses-bg-color: #f0ffff;
+    --water-dark-color: #5C87ED;
+    --water-light-color: #DCE3F5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background: rgb(19, 19, 19);
+    color: var(--body-color);
+    font-family: 'Noto Sans', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ul img {
+    height: 6rem;
+    width: 6rem;
 }
 
-.App-link {
-  color: #61dafb;
+.basic-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  margin: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flip-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    height: 600px;
+    width: 100%;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 1px;
+    transition: all 500ms;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Style the front side (fallback if image is missing) */
+.grass-front-theme {
+    background: linear-gradient(to right, var(--grass-dark-color), var(--grass-light-color));
+}
+
+.fire-front-theme {
+    background: linear-gradient(to right, var(--fire-dark-color), var(--fire-light-color));
+}
+
+.water-front-theme {
+    background: linear-gradient(to right, var(--water-dark-color), var(--water-light-color))
+}
+
+.bug-front-theme {
+    background: linear-gradient(to right, var(--bug-dark-color), var(--bug-light-color));
+}
+
+.normal-front-theme {
+    background: linear-gradient(to right, var(--normal-dark-color), var(--normal-light-color));
+}
+
+.poison-front-theme {
+    background: linear-gradient(to right, var(--poison-dark-color), var(--poison-light-color));
+}
+
+.electric-front-theme {
+    background: linear-gradient(to right, var(--electric-dark-color), var(--electric-light-color));
+}
+
+.ground-front-theme {
+    background: linear-gradient(to right, var(--ground-dark-color), var(--ground-light-color));
+}
+
+.fairy-front-theme {
+    background: linear-gradient(to right, var(--fairy-dark-color), var(--fairy-light-color));
+}
+
+.flying-front-theme {
+    background: linear-gradient(to right, var(--flying-dark-color), var(--flying-light-color));
+}
+
+.fighting-front-theme {
+    background: linear-gradient(to right, var(--fighting-dark-color), var(--fighting-light-color));
+}
+
+.psychic-front-theme {
+    background: linear-gradient(to right, var(--psychic-dark-color), var(--psychic-light-color));
+}
+
+.rock-front-theme {
+    background: linear-gradient(to right, var(--rock-dark-color), var(--rock-light-color));
+}
+
+.steel-front-theme {
+    background: linear-gradient(to right, var(--steel-dark-color), var(--steel-light-color));
+}
+
+.ice-front-theme {
+    background: linear-gradient(to right, var(--ice-dark-color), var(--ice-light-color));
+}
+
+.ghost-front-theme {
+    background: linear-gradient(to right, var(--ghost-dark-color), var(--ghost-light-color));
+}
+
+.dragon-front-theme {
+    background: linear-gradient(to right, var(--dragon-dark-color), var(--dragon-light-color))
+}
+
+.dark-front-theme {
+    background: linear-gradient(to right, var(--dark-dark-color), var(--dark-light-color))
+}
+
+.grass-back-theme {
+    background-color:  var(--grass-dark-color);
+}
+
+.fire-back-theme {
+    background-color: var(--fire-dark-color);
+}
+
+.water-back-theme {
+    background-color: var(--water-dark-color);
+}
+
+.bug-back-theme {
+    background-color: var(--bug-dark-color);
+}
+
+.normal-back-theme {
+    background-color: var(--normal-dark-color);
+}
+
+.poison-back-theme {
+    background-color: var(--poison-dark-color);
+}
+
+.electric-back-theme {
+    background-color: var(--electric-dark-color);
+}
+
+.ground-back-theme {
+    background-color: var(--ground-dark-color);
+}
+
+.fairy-back-theme {
+    background-color: var(--fairy-dark-color);
+}
+
+.flying-back-theme {
+    background-color: var(--flying-dark-color);
+}
+
+.fighting-back-theme {
+    background-color: var(--fighting-dark-color);
+}
+
+.psychic-back-theme {
+    background-color: var(--psychic-dark-color);
+}
+
+.rock-back-theme {
+    background-color: var(--rock-dark-color);
+}
+
+.steel-back-theme {
+    background-color: var(--steel-dark-color);
+}
+
+.ice-back-theme {
+    background-color: var(--ice-dark-color);
+}
+
+.ghost-back-theme {
+    background-color: var(--ghost-dark-color);
+}
+
+.dragon-back-theme {
+    background-color: var(--dragon-dark-color);
+}
+
+.dark-back-theme {
+    background-color: var(--dark-dark-color);
+}
+
+.grass-border {
+    box-shadow: -5px -5px var(--grass-dark-color), 5px 5px var(--grass-light-color);
+}
+
+.fire-border {
+    box-shadow: -5px -5px var(--fire-dark-color), 5px 5px var(--fire-light-color);
+}
+
+.water-border {
+    box-shadow: -5px -5px var(--water-dark-color), 5px 5px var(--water-light-color);
+}
+
+.bug-border {
+    box-shadow: -5px -5px var(--bug-dark-color), 5px 5px var(--bug-light-color);
+}
+
+.normal-border {
+    box-shadow: -5px -5px var(--normal-dark-color), 5px 5px var(--normal-light-color);
+}
+
+.poison-border {
+    box-shadow: -5px -5px var(--poison-dark-color), 5px 5px var(--poison-light-color);
+}
+
+.electric-border {
+    box-shadow: -5px -5px var(--electric-dark-color), 5px 5px var(--electric-light-color);
+}
+
+.ground-border {
+    box-shadow: -5px -5px var(--ground-dark-color), 5px 5px var(--ground-light-color);
+}
+
+.fairy-border {
+    box-shadow: -5px -5px var(--fairy-dark-color), 5px 5px var(--fairy-light-color);
+}
+
+.flying-border {
+    box-shadow: -5px -5px var(--flying-dark-color), 5px 5px var(--flying-light-color);
+}
+
+.fighting-border {
+    box-shadow: -5px -5px var(--fighting-dark-color), 5px 5px var(--fighting-light-color);
+}
+
+.psychic-border {
+    box-shadow: -5px -5px var(--psychic-dark-color), 5px 5px var(--psychic-light-color);
+}
+
+.rock-border {
+    box-shadow: -5px -5px var(--rock-dark-color), 5px 5px var(--rock-light-color);
+}
+
+.steel-border {
+    box-shadow: -5px -5px var(--steel-dark-color), 5px 5px var(--steel-light-color);
+}
+
+.ice-border {
+    box-shadow: -5px -5px var(--ice-dark-color), 5px 5px var(--ice-light-color);
+}
+
+.ghost-border {
+    box-shadow: -5px -5px var(--ghost-dark-color), 5px 5px var(--ghost-light-color);
+}
+
+.dragon-border {
+    box-shadow:  -5px -5px var(--dragon-dark-color), 5px 5px var(--dragon-light-color);
+}
+
+.dark-border {
+    box-shadow:  -5px -5px var(--dark-dark-color), 5px 5px var(--dark-light-color);
+}
+
+.flip-card-front > img {
+    width: 100%;
+    height: 100%;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+    transform: rotateY(180deg);
+    color: var(--body-color);
+}
+
+.evo-line-container, .types-container, .weaknesses-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: var(--evo-types-weaknesses-border-color);
+    margin: 0 auto;
+    width: max-content;
+    padding: 1px;
+}
+
+.evo-line-container {
+    background-image: var(--evo-bg-image);
+}
+
+.evo-line-container p {
+    margin: .25rem;
+}
+
+.evo-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.types-container, .weaknesses-container {
+    background-color: var(--types-weaknesses-bg-color);
+}
+
+.types-container > img, .weaknesses-container > img {
+    margin: .25rem;
+    border-radius: 4px;
+}
+
+.front-types {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+.front-types img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+li.firstList::after, li.lastListItem::before {
+    content: url("./images/arrow.png");
+    vertical-align: 130%;
+}
+
+.lastList li {
+    background-color: #008000;
+    /* display: list-item;
+    float: left; */
 }
