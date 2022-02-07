@@ -233,7 +233,7 @@ function LastList({ baseCSS, lastIds }) {
   }
   return (
     lastIds.map((id) => {
-      return <ListItem cssClass={`${baseCSS.get('lastListCSSClassName')}`} evoId={id} key={id} />
+      return <ListItem cssClass={`${baseCSS.get('lastListItemCSSClassName')}`} evoId={id} key={id} />
     })
   )
 }
