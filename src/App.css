@@ -385,13 +385,13 @@ ul img {
     width: 2.5rem;
 }
 
-li.firstList::after, li.lastListItem::before {
+li.eeveeFirstList::after, li.lastListItem::before, li.middleList::before {
     content: url("./images/arrow.png");
     vertical-align: 130%;
 }
 
-.lastList li {
-    background-color: #008000;
-    /* display: list-item;
-    float: left; */
+li.eeveeLastList {
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
 }

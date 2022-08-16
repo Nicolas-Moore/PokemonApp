@@ -5,6 +5,9 @@ class App extends Component {
   render() {
     const baseCSS = new Map(Object.entries({
       basicGridCSSClassName: 'basic-grid',
+      eeveeFirstListCSSClassName: 'eeveeFirstList',
+      eeveeLastListCSSClassName: 'eeveeLastList',
+      eeveeLastListItemCSSClassName: 'eeveeLastListItem',
       evoLineContainerCSSClassName: 'evo-line-container',
       evoProfileCSSClassName: 'evo-profile',
       firstListCSSClassName: 'firstList',
@@ -215,26 +218,19 @@ function getMiddleRange(evoLineLength, multiEvolveValue) {
 
 function FirstList({ baseCSS, firstId }) {
   return (
-    <ListItem cssClass={`${baseCSS.get('firstListCSSClassName')}`} evoId={firstId} key={firstId} />
+    <ListItem cssClass={(firstId !== 133) ? `${baseCSS.get('firstListCSSClassName')}` : `${baseCSS.get('eeveeFirstListCSSClassName')}`} evoId={firstId} key={firstId} />
   )
 }
 
 function LastList({ baseCSS, lastIds }) {
-  if (lastIds.length > 1) {
-    return (
-      <li className={`${baseCSS.get('lastListCSSClassName')}`}>
-        <ul>
-          {lastIds.map((id) => {
-            return <ListItem cssClass={`${baseCSS.get('lastListItemCSSClassName')}`} evoId={id} key={id} />
-          })}
-        </ul>
-      </li>
-    )
-  }
   return (
-    lastIds.map((id) => {
-      return <ListItem cssClass={`${baseCSS.get('lastListItemCSSClassName')}`} evoId={id} key={id} />
-    })
+    <li className={(lastIds.length < 4) ? `${baseCSS.get('lastListCSSClassName')}` : `${baseCSS.get('eeveeLastListCSSClassName')}`}>
+      <ul>
+        {lastIds.map((id) => {
+          return <ListItem cssClass={(lastIds.length < 4) ? `${baseCSS.get('lastListItemCSSClassName')}` : `${baseCSS.get('eeveeLastListItemCSSClassName')}`} evoId={id} key={id} />
+        })}
+      </ul>
+    </li>
   )
 }
 
